@@ -1,97 +1,153 @@
-import { Link } from "react-router-dom";
-import usePageMeta from "../hooks/usePageMeta";
-import SectionHeader from "../components/common/SectionHeader";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SectionHeader from '../components/common/SectionHeader';
 
-const strengths = [
-  {
-    title: "초정밀 여과 기술",
-    description: "산업 현장 요구치에 맞춘 고성능 필터 설계와 안정적 품질 관리"
-  },
-  {
-    title: "대형 현장 납품 경험",
-    description: "공항, 반도체 공장, 클린룸 프로젝트 중심의 납품 및 운영 레퍼런스"
-  },
-  {
-    title: "맞춤 엔지니어링",
-    description: "현장 환경 분석을 기반으로 규격, 압손, 유지보수 조건을 최적화"
-  },
-  {
-    title: "유지보수 대응력",
-    description: "클린룸 유지보수와 필터 교체 주기 컨설팅을 단일 창구로 제공"
-  }
-];
-
-const businessAreas = [
-  "공항 환기 시스템",
-  "반도체 클린룸",
-  "제약 산업",
-  "산업용 공조 시스템"
-];
-
-export default function HomePage() {
-  usePageMeta(
-    "산업용 공조 필터 전문 기업",
-    "ecogad는 공항, 반도체 공장, 클린룸 등 고청정 산업 환경을 위한 공조 필터 솔루션을 제공합니다."
-  );
-
+const HomePage = () => {
   return (
-    <>
-      <section className="hero" aria-label="에코가드 메인 비주얼">
-        <img
-          src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1920&q=80"
-          alt="대형 공조 설비가 설치된 산업용 실내 공간"
-          loading="eager"
-        />
-        <div className="hero-content container">
-          <p className="hero-eyebrow">Industrial Air Filtration Partner</p>
-          <h1>정밀 공조 필터링으로 산업 현장의 공기를 관리합니다</h1>
-          <p>
-            ecogad는 대형 고성능 필터 제조와 클린 환경 유지보수 기술을 결합해
-            공정 안정성과 운영 신뢰성을 높입니다.
-          </p>
-          <div className="hero-cta">
-            <Link to="/products" className="btn btn-primary">
-              제품 보기
-            </Link>
-            <Link to="/inquiry" className="btn btn-secondary">
-              견적 문의
-            </Link>
+    <div>
+      {/* 1. Majestic Hero Section - Cambridge style depth */}
+      <section style={{ 
+        position: 'relative', 
+        height: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        color: 'white',
+        marginTop: '-80px',
+        overflow: 'hidden'
+      }}>
+        {/* Background with subtle zoom animation or static high-res */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1581092786450-7ef25f140997?auto=format&fit=crop&w=1800&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'brightness(0.3)',
+          zIndex: 1
+        }}></div>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ maxWidth: '800px' }}>
+            <span className="section-eyebrow" style={{ color: 'var(--color-cyan-500)', fontSize: '1.1rem', letterSpacing: '0.3em', marginBottom: '24px', display: 'block' }}>
+              ENGINEERING PURITY SINCE 2012
+            </span>
+            <h1 className="display-1" style={{ marginBottom: '32px', color: 'white', fontSize: '4.5rem', lineHeight: '1.1' }}>
+              The Standard of<br />
+              <span style={{ color: 'var(--color-blue-600)' }}>Industrial Purity.</span>
+            </h1>
+            <p className="body-text" style={{ fontSize: '1.4rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '48px', fontWeight: 300 }}>
+              반도체 클린룸에서 공항까지, 에코가드의 초정밀 필터 솔루션은<br /> 
+              산업의 품질과 생명을 지키는 가장 완벽한 기준이 됩니다.
+            </p>
+            <div style={{ display: 'flex', gap: '20px' }}>
+              <Link to="/products" className="btn btn-primary" style={{ padding: '18px 48px', borderRadius: '0' }}>
+                EXPLORE SOLUTIONS
+              </Link>
+              <Link to="/company" className="btn" style={{ 
+                padding: '18px 48px', 
+                border: '1px solid rgba(255,255,255,0.3)', 
+                color: 'white',
+                borderRadius: '0'
+              }}>
+                ABOUT ECOGAD
+              </Link>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom scroll indicator */}
+        <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', zIndex: 2, opacity: 0.5 }}>
+          <div style={{ width: '1px', height: '60px', background: 'white', margin: '0 auto' }}></div>
+          <span style={{ fontSize: '0.75rem', letterSpacing: '0.2em', marginTop: '10px', display: 'block' }}>SCROLL</span>
+        </div>
+      </section>
+
+      {/* 2. Technical Expertise - Cambridge Style Philosophy Grid */}
+      <section className="section bg-gray">
+        <div className="container">
+          <SectionHeader 
+            eyebrow="TECHNICAL EXCELLENCE" 
+            title="숫자로 증명하는 압도적 기술력" 
+            description="캠브리지 필터의 정밀 엔지니어링 정신을 계승하여, 에코가드는 오직 성능으로만 말합니다." 
+          />
+          <div className="philosophy-grid">
+            {[
+              { num: "99.999%", title: "ULPA Performance", desc: "0.1μm 입자까지 완벽하게 제어하는 초고성능 여과 기술" },
+              { num: "35% Lower", title: "Energy Efficient", desc: "독자적인 저압손 설계를 통한 송풍기 전력 소모 혁신적 절감" },
+              { num: "ISO Class 1", title: "Cleanliness Certified", desc: "최첨단 반도체 공정에 적합한 세계 최고 수준의 청정도 보장" }
+            ].map((item, idx) => (
+              <div key={idx} className="philosophy-item">
+                <span className="philosophy-number" style={{ fontSize: '2.5rem', marginBottom: '10px' }}>{item.num}</span>
+                <h3 className="heading-3" style={{ color: 'var(--color-navy-900)' }}>{item.title}</h3>
+                <p className="body-text" style={{ fontSize: '0.95rem' }}>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section container" aria-labelledby="strength-title">
-        <SectionHeader
-          eyebrow="WHY ECOGAD"
-          title="핵심 강점"
-          description="현장 중심 기술 대응으로 고청정 환경 유지에 필요한 핵심 역량을 제공합니다."
-        />
-        <ul className="card-grid four-column" id="strength-title">
-          {strengths.map((item) => (
-            <li key={item.title} className="card">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {/* 3. Core Business Areas - Large Scale Visuals */}
+      <section className="section container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'center', marginBottom: '100px' }}>
+          <div>
+            <span className="section-eyebrow" style={{ color: 'var(--color-blue-600)' }}>SEMICONDUCTOR & PHARMA</span>
+            <h2 className="heading-2" style={{ fontSize: '2.5rem' }}>고청정 산업의 핵심 파트너</h2>
+            <p className="body-text" style={{ marginBottom: '32px' }}>
+              미세한 오염 물질 하나가 수조 원의 손실로 이어지는 반도체와 제약 공정. 
+              에코가드는 완벽한 기밀 유지와 케미컬 제거 기술로 가장 안전한 생산 환경을 구축합니다.
+            </p>
+            <ul style={{ marginBottom: '40px' }}>
+              {['반도체/디스플레이 클린룸', '제약/바이오 무균실', '병원 음압 병동 시스템'].map(item => (
+                <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', fontWeight: 600 }}>
+                  <span style={{ color: 'var(--color-blue-600)' }}>✓</span> {item}
+                </li>
+              ))}
+            </ul>
+            <Link to="/products" className="text-link">솔루션 상세 보기</Link>
+          </div>
+          <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+            <img 
+              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=80" 
+              alt="Cleanroom Technology" 
+              style={{ width: '100%', height: '500px', objectFit: 'cover' }}
+            />
+          </div>
+        </div>
 
-      <section className="section section-tint" aria-labelledby="business-summary-title">
-        <div className="container">
-          <SectionHeader
-            eyebrow="BUSINESS FOCUS"
-            title="주요 사업 영역"
-            description="산업별 공조 환경 특성에 맞춰 설계·제조·유지보수를 제공합니다."
-          />
-          <ul className="pill-grid" id="business-summary-title">
-            {businessAreas.map((area) => (
-              <li key={area} className="pill-item">
-                {area}
-              </li>
-            ))}
-          </ul>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'center' }}>
+          <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', order: 2 }}>
+            <img 
+              src="https://images.unsplash.com/photo-1473862170180-84427c485aca?q=80&w=2670&auto=format&fit=crop" 
+              alt="Modern Airport Infrastructure Ventilation" 
+              style={{ width: '100%', height: '500px', objectFit: 'cover' }}
+            />
+          </div>
+          <div style={{ order: 1 }}>
+            <span className="section-eyebrow" style={{ color: 'var(--color-blue-600)' }}>PUBLIC INFRASTRUCTURE</span>
+            <h2 className="heading-2" style={{ fontSize: '2.5rem' }}>대형 인프라 공조의 표준</h2>
+            <p className="body-text" style={{ marginBottom: '32px' }}>
+              인천공항 등 대규모 유동인구가 발생하는 공공시설의 실내 공기질은 에코가드가 책임집니다. 
+              에너지 효율을 극대화한 대형 프리/미디움 필터 라인업을 통해 쾌적한 환경을 선사합니다.
+            </p>
+            <Link to="/products" className="text-link">공조 시스템 보기</Link>
+          </div>
         </div>
       </section>
-    </>
+
+      {/* 4. Global Vision CTA (Cambridge Dark Style) */}
+      <section className="section" style={{ backgroundColor: 'var(--color-navy-900)', color: 'white', textAlign: 'center' }}>
+        <div className="container">
+          <h2 className="heading-2" style={{ color: 'white', fontSize: '3rem', marginBottom: '24px' }}>가장 정밀한 공기로,<br />산업의 내일을 설계합니다.</h2>
+          <p className="body-text" style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '700px', margin: '0 auto 48px', fontSize: '1.2rem' }}>
+            에코가드의 기술 지원 팀은 귀사의 공조 설비 효율을 분석하여<br /> 
+            최적의 유지보수 플랜을 제안해 드립니다.
+          </p>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+            <Link to="/inquiry" className="btn btn-primary" style={{ padding: '20px 60px' }}>지금 견적 문의하기</Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
-}
+};
+
+export default HomePage;

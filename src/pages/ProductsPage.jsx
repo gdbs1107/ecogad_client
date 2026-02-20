@@ -1,40 +1,65 @@
-import { Link } from "react-router-dom";
-import PageHero from "../components/common/PageHero";
-import SectionHeader from "../components/common/SectionHeader";
-import usePageMeta from "../hooks/usePageMeta";
-import { productCategories } from "../data/productCategories";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PageHero from '../components/common/PageHero';
+import { categories } from '../data/categories';
 
-export default function ProductsPage() {
-  usePageMeta("제품 및 서비스", "에코가드의 제품 및 서비스 카테고리를 확인하세요.");
-
+const ProductsPage = () => {
   return (
-    <>
-      <PageHero
-        title="제품 및 서비스"
-        description="산업 현장별 요구사항에 맞춘 필터 및 유지보수 솔루션을 제공합니다."
-        imageUrl="https://images.unsplash.com/photo-1581092786450-7ef25f140997?auto=format&fit=crop&w=1800&q=80"
-        imageAlt="산업용 공조 필터 설비가 설치된 현장"
+    <div>
+      <PageHero 
+        title="Products & Services" 
+        subtitle="공항, 반도체, 제약 산업을 위한 고성능 공조 필터 솔루션"
+        bgImage="https://images.unsplash.com/photo-1555529733-0e670560f7e1?q=80&w=2574&auto=format&fit=crop"
       />
+      
+      <section className="section container">
+        <div className="section-header">
+          <span className="section-eyebrow">Product Lineup</span>
+          <h2>산업별 맞춤 필터 솔루션</h2>
+          <p>고객사의 환경에 최적화된 다양한 필터 라인업을 확인하세요.</p>
+        </div>
 
-      <section className="section container" aria-labelledby="product-category-title">
-        <SectionHeader
-          eyebrow="CATEGORIES"
-          title="제품 카테고리"
-          description="카테고리를 선택하면 각 제품 및 서비스 안내 페이지로 이동합니다."
-        />
-
-        <ul className="card-grid two-column" id="product-category-title">
-          {productCategories.map((category) => (
-            <li key={category.slug} className="card">
-              <h3>{category.name}</h3>
-              <p>{category.description}</p>
-              <Link to={`/products/${category.slug}`} className="text-link">
-                상세 보기
-              </Link>
-            </li>
+        <div className="card-grid">
+          {categories.map((category) => (
+            <Link to={`/products/${category.id}`} key={category.id} className="product-category-card">
+              <div style={{
+                padding: '40px 32px',
+                border: '1px solid var(--color-gray-200)',
+                borderRadius: 'var(--radius-md)',
+                transition: 'all 0.3s ease',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                background: 'white',
+                boxShadow: 'var(--shadow-sm)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'var(--color-blue-600)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = 'var(--color-gray-200)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+              }}
+              >
+                <div>
+                  <h3 className="heading-3" style={{ color: 'var(--color-blue-600)' }}>{category.name}</h3>
+                  <p className="body-text">{category.description}</p>
+                </div>
+                <div style={{ marginTop: '24px', fontWeight: 600, color: 'var(--color-navy-900)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  View Products 
+                  <span style={{ fontSize: '1.2em' }}>→</span>
+                </div>
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
-    </>
+    </div>
   );
-}
+};
+
+export default ProductsPage;

@@ -33,7 +33,7 @@ export default function AppLayout() {
       <header className="site-header">
         <div className="container header-inner">
           <NavLink to="/" className="brand" aria-label="ecogad 홈으로 이동">
-            ecogad
+            ECOGAD
           </NavLink>
           <nav className="global-nav" aria-label="메인 메뉴">
             <ul>

@@ -1,96 +1,82 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import EmptyState from "../components/common/EmptyState";
-import PageHero from "../components/common/PageHero";
-import usePageMeta from "../hooks/usePageMeta";
-import { fetchProductsByCategory } from "../services/api/products";
-import { findCategoryBySlug } from "../data/productCategories";
-import NotFoundPage from "./NotFoundPage";
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import PageHero from '../components/common/PageHero';
+import EmptyState from '../components/common/EmptyState';
+import { categories, getCategoryById } from '../data/categories';
 
-export default function ProductCategoryPage() {
+const ProductCategoryPage = () => {
   const { categorySlug } = useParams();
-  const category = findCategoryBySlug(categorySlug);
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  usePageMeta(
-    category ? category.name : "제품 상세",
-    category
-      ? `${category.name} 카테고리의 제품 및 서비스를 확인하세요.`
-      : "존재하지 않는 제품 카테고리입니다."
-  );
+  const [category, setCategory] = useState(null);
+  const [products, setProducts] = useState([]); // Currently empty, mimicking no DB connection yet
 
   useEffect(() => {
-    if (!category) {
-      return;
-    }
-
-    let active = true;
-
-    async function loadProducts() {
-      try {
-        setIsLoading(true);
-        const response = await fetchProductsByCategory(category.slug);
-        if (active) {
-          setProducts(response);
-          setError("");
-        }
-      } catch (loadError) {
-        if (active) {
-          setError("제품 정보를 불러오지 못했습니다.");
-        }
-      } finally {
-        if (active) {
-          setIsLoading(false);
-        }
-      }
-    }
-
-    loadProducts();
-
-    return () => {
-      active = false;
-    };
-  }, [category]);
+    // 1. Fetch category metadata (Simulated)
+    const currentCategory = getCategoryById(categorySlug);
+    setCategory(currentCategory);
+    
+    // 2. Fetch products for this category (Simulated API call)
+    // In the future, this will be: api.get(`/products?category=${categorySlug}`)
+    setProducts([]); // Intentionally empty as per requirement
+  }, [categorySlug]);
 
   if (!category) {
-    return <NotFoundPage />;
+    return (
+      <div className="container section" style={{ textAlign: 'center' }}>
+        <h2>존재하지 않는 카테고리입니다.</h2>
+        <Link to="/products" className="btn btn-primary" style={{ marginTop: '20px' }}>목록으로 돌아가기</Link>
+      </div>
+    );
   }
 
   return (
-    <>
-      <PageHero
-        title={category.name}
-        description={category.description}
-        imageUrl="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=1800&q=80"
-        imageAlt="산업용 필터 장비를 점검하는 현장"
+    <div>
+      <PageHero 
+        title={category.name} 
+        subtitle={category.description}
+        bgImage="https://images.unsplash.com/photo-1555529733-0e670560f7e1?q=80&w=2574&auto=format&fit=crop"
       />
+      
+      <section className="section container">
+        {/* Breadcrumb & Navigation (Optional for UX) */}
+        <div style={{ marginBottom: '40px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          {categories.map(c => (
+            <Link 
+              key={c.id} 
+              to={`/products/${c.id}`}
+              className={`btn btn-outline ${c.id === categorySlug ? 'active' : ''}`}
+              style={{ 
+                padding: '8px 16px', 
+                fontSize: '0.9rem',
+                background: c.id === categorySlug ? 'var(--color-navy-900)' : 'white',
+                color: c.id === categorySlug ? 'white' : 'var(--color-navy-900)',
+                borderColor: c.id === categorySlug ? 'var(--color-navy-900)' : 'var(--color-gray-200)'
+              }}
+            >
+              {c.name}
+            </Link>
+          ))}
+        </div>
 
-      <section className="section container" aria-labelledby="product-list-title">
-        <h2 id="product-list-title">제품 목록</h2>
-
-        {isLoading ? <p className="status-message">제품 정보를 확인 중입니다.</p> : null}
-        {!isLoading && error ? <p className="status-message error">{error}</p> : null}
-
-        {!isLoading && !error && products.length === 0 ? (
-          <EmptyState
-            title="등록된 제품이 없습니다"
-            description="관리자 등록 후 해당 카테고리의 제품 목록이 이 영역에 표시됩니다."
-          />
-        ) : null}
-
-        {!isLoading && !error && products.length > 0 ? (
-          <ul className="card-grid two-column" aria-label="제품 목록">
-            {products.map((product) => (
-              <li key={product.id} className="card">
-                <h3>{product.name}</h3>
-                <p>{product.summary}</p>
-              </li>
+        {/* Dynamic Content Area */}
+        {products.length > 0 ? (
+          <div className="product-grid">
+            {/* Future Product Card Component will go here */}
+            {products.map(product => (
+              <div key={product.id}>{product.name}</div>
             ))}
-          </ul>
-        ) : null}
+          </div>
+        ) : (
+          /* The Core Requirement: Empty State UI */
+          <EmptyState 
+            title="등록된 제품이 없습니다"
+            message={`현재 '${category.name}' 카테고리에 등록된 제품 정보가 준비 중입니다. 관리자 페이지에서 제품을 등록하면 이곳에 표시됩니다.`}
+            actionText="제품 문의하기"
+            onAction={() => window.location.href = '/inquiry'}
+          />
+        )}
       </section>
-    </>
+    </div>
   );
-}
+};
+
+export default ProductCategoryPage;
