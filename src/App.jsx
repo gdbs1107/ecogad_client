@@ -11,16 +11,16 @@ import NotFoundPage from "./pages/NotFoundPage"; // Existing file
 
 // Simple Footer for completeness
 const Footer = () => (
-  <footer style={{ background: 'var(--color-navy-900)', color: 'white', padding: '60px 0', marginTop: 'auto' }}>
-    <div className="container" style={{ opacity: 0.7 }}>
-      <div style={{ marginBottom: '24px', fontWeight: 700, fontSize: '1.2rem' }}>ECOGAD</div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', fontSize: '0.9rem' }}>
+  <footer className="site-footer">
+    <div className="container footer-inner">
+      <div className="footer-brand">ECOGAD</div>
+      <div className="footer-grid">
         <div>
           <p>경기도 화성시 동탄첨단산업1로 27</p>
           <p>대표전화: 031-123-4567 | 팩스: 031-123-4568</p>
           <p>이메일: sales@ecogad.co.kr</p>
         </div>
-        <div style={{ textAlign: 'right' }}>
+        <div className="footer-copyright">
           <p>Copyright © 2026 ECOGAD. All rights reserved.</p>
         </div>
       </div>
@@ -30,9 +30,9 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div className="site-shell">
       <Header />
-      <main style={{ flex: 1 }}>
+      <main className="site-main">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/company" element={<CompanyPage />} />
