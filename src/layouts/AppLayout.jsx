@@ -1,5 +1,5 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { useEffect } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { to: "/company", label: "회사소개" },
@@ -9,6 +9,9 @@ const navItems = [
 ];
 
 export default function AppLayout() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
     const scriptId = "organization-jsonld";
     if (document.getElementById(scriptId)) {
@@ -28,6 +31,10 @@ export default function AppLayout() {
     document.head.appendChild(script);
   }, []);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -35,7 +42,22 @@ export default function AppLayout() {
           <NavLink to="/" className="brand" aria-label="ecogad 홈으로 이동">
             ECOGAD
           </NavLink>
-          <nav className="global-nav" aria-label="메인 메뉴">
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-label="메뉴 열기"
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <nav
+            className={`global-nav ${mobileMenuOpen ? "is-open" : ""}`}
+            aria-label="메인 메뉴"
+          >
             <ul>
               {navItems.map((item) => (
                 <li key={item.to}>

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import PageHero from '../components/common/PageHero';
-import { fetchNoticeById } from '../services/api/notices';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import PageHero from "../components/common/PageHero";
+import { fetchNoticeById } from "../services/api/notices";
 
 const NoticeDetailPage = () => {
   const { noticeId } = useParams();
@@ -20,12 +20,13 @@ const NoticeDetailPage = () => {
         setIsLoading(false);
       }
     }
+
     loadNotice();
   }, [noticeId]);
 
   if (isLoading) {
     return (
-      <div className="container section" style={{ textAlign: 'center' }}>
+      <div className="container section notice-state-wrap">
         <p className="body-text">공지사항을 불러오는 중입니다...</p>
       </div>
     );
@@ -33,25 +34,28 @@ const NoticeDetailPage = () => {
 
   if (!notice) {
     return (
-      <div className="container section" style={{ textAlign: 'center' }}>
+      <div className="container section notice-state-wrap">
         <h2 className="heading-2">존재하지 않는 게시글입니다.</h2>
-        <Link to="/notices" className="btn btn-primary" style={{ marginTop: '24px' }}>목록으로 돌아가기</Link>
+        <Link to="/notices" className="btn btn-primary notice-state-button">
+          목록으로 돌아가기
+        </Link>
       </div>
     );
   }
 
   return (
-    <div>
-      <PageHero 
-        title="Notice & News" 
+    <div className="notice-detail-page">
+      <PageHero
+        title="Notice & News"
         subtitle="에코가드의 최신 소식을 상세히 확인하세요."
         bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+        imageAlt="공지사항 상세 페이지"
       />
 
       <section className="section container">
         <article className="notice-content-area">
           <header className="notice-header">
-            <span className="notice-badge" style={{ marginBottom: '16px' }}>에코가드 공식 공지</span>
+            <span className="notice-badge notice-badge-header">에코가드 공식 공지</span>
             <h1 className="heading-1">{notice.title}</h1>
             <div className="notice-meta">
               <span>작성일: {notice.publishedAt}</span>
@@ -61,23 +65,26 @@ const NoticeDetailPage = () => {
           </header>
 
           <div className="notice-body">
-            {/* Split content by newlines to render as paragraphs for better readability */}
-            {notice.content.split('\n').map((line, idx) => (
-              <p key={idx} style={{ marginBottom: '24px' }}>{line}</p>
+            {notice.content.split("\n").map((line, index) => (
+              <p key={`${notice.id}-${index}`}>{line}</p>
             ))}
           </div>
 
           <footer className="notice-footer">
-            <button 
-              className="btn btn-outline" 
-              onClick={() => navigate('/notices')}
-              style={{ padding: '12px 32px' }}
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={() => navigate("/notices")}
             >
               목록으로
             </button>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button className="btn btn-outline" disabled style={{ opacity: 0.5 }}>이전글</button>
-              <button className="btn btn-outline" disabled style={{ opacity: 0.5 }}>다음글</button>
+            <div className="notice-footer-actions" aria-label="이전 다음 게시글 버튼">
+              <button type="button" className="btn btn-outline" disabled>
+                이전글
+              </button>
+              <button type="button" className="btn btn-outline" disabled>
+                다음글
+              </button>
             </div>
           </footer>
         </article>
