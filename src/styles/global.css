@@ -1,0 +1,353 @@
+:root {
+  /* Brand Colors - Engineering Purity */
+  --color-navy-900: #0f172a; /* Main Text, Footer, Heavy BG */
+  --color-navy-800: #1e293b;
+  --color-navy-50: #f8fafc;  /* Subtle BG */
+  
+  --color-blue-600: #0066ff; /* Primary Brand Color */
+  --color-blue-700: #0052cc; /* Hover State */
+  --color-cyan-500: #06b6d4; /* Accent: Clean Air */
+  
+  --color-white: #ffffff;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0; /* Borders */
+  --color-gray-400: #94a3b8; /* Subtext */
+  --color-gray-600: #475569; /* Body Text */
+
+  /* Typography */
+  --font-main: 'Pretendard Variable', 'Inter', -apple-system, sans-serif;
+  --heading-weight: 700;
+  
+  /* Layout */
+  --container-width: 1280px;
+  --header-height: 80px;
+  
+  /* Effects */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px; /* Industrial rounded, not too soft */
+}
+
+/* Reset & Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-navy-800);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 100px 0; }
+.bg-gray { background-color: var(--color-navy-50); }
+
+/* Typography Hierarchy */
+h1, h2, h3, h4 { letter-spacing: -0.02em; color: var(--color-navy-900); }
+
+.display-1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; }
+.heading-1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+.heading-2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+.heading-3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; }
+.body-text { font-size: 1.05rem; color: var(--color-gray-600); }
+
+/* Component: Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-blue-600);
+  color: white;
+}
+.btn-primary:hover { background: var(--color-blue-700); transform: translateY(-1px); }
+
+.btn-outline {
+  border: 1px solid var(--color-gray-200);
+  color: var(--color-navy-900);
+  background: white;
+}
+.btn-outline:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
+
+/* Component: Section Header */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+.section-eyebrow {
+  display: block;
+  color: var(--color-cyan-500);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+.section-header h2 { font-size: 2.25rem; margin-bottom: 16px; }
+.section-header p { font-size: 1.125rem; color: var(--color-gray-600); }
+
+/* Specific Components */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+/* Notice Styles - B2B Modern */
+.notice-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 40px;
+}
+
+.notice-table th {
+  padding: 16px 24px;
+  text-align: left;
+  background: var(--color-navy-50);
+  color: var(--color-navy-900);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-gray-200);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.notice-row {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.notice-row:hover {
+  background-color: #f8fafc;
+}
+
+.notice-row td {
+  padding: 24px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.notice-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--color-gray-100);
+  color: var(--color-gray-600);
+}
+
+.notice-badge.urgent {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.notice-title-cell {
+  font-weight: 600;
+  color: var(--color-navy-900);
+  font-size: 1.1rem;
+}
+
+.notice-date-cell {
+  color: var(--color-gray-400);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Notice Detail */
+.notice-content-area {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.notice-header {
+  border-bottom: 1px solid var(--color-gray-200);
+  padding-bottom: 32px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.notice-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  color: var(--color-navy-900);
+}
+
+.notice-meta {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  color: var(--color-gray-400);
+  font-size: 0.95rem;
+}
+
+.notice-body {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-gray-600);
+  margin-bottom: 64px;
+}
+
+.notice-footer {
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .notice-table th:nth-child(1), .notice-table td:nth-child(1) { display: none; }
+  .notice-header h1 { font-size: 1.75rem; }
+}
+
+/* Corporate Detail Styles (Cambridge Style) */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-gray-200); /* Border effect */
+  border: 1px solid var(--color-gray-200);
+}
+
+.philosophy-item {
+  background: white;
+  padding: 60px 40px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.philosophy-item:hover {
+  background: var(--color-navy-50);
+}
+
+.philosophy-number {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-blue-600);
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+}
+
+.ceo-signature {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.signature-line {
+  width: 60px;
+  height: 1px;
+  background: var(--color-navy-900);
+}
+
+.signature-text {
+  font-family: 'Cormorant Garamond', serif; /* Or any classic serif */
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-navy-900);
+}
+
+/* Refined History */
+.history-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.history-item {
+  display: flex;
+  gap: 60px;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.history-item::before {
+  content: '';
+  position: absolute;
+  left: 110px;
+  top: 10px;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-gray-200);
+}
+
+.history-item:last-child::before { display: none; }
+
+.history-year {
+  width: 110px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.history-dot {
+  position: absolute;
+  left: 106px;
+  top: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-blue-600);
+  z-index: 2;
+}
+
+.history-content {
+  padding-top: 4px;
+}
+
+.history-content h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-navy-900);
+}
+
+@media (max-width: 768px) {
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .history-item { gap: 20px; }
+  .history-year { width: 70px; font-size: 1.25rem; }
+  .history-item::before, .history-dot { left: 86px; }
+}
+
+/* Empty State UI */
+.empty-state {
+  text-align: center;
+  padding: 80px 0;
+  background: var(--color-navy-50);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-gray-200);
+}
+.empty-icon {
+  width: 64px; height: 64px;
+  background: var(--color-gray-200);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-gray-600);
+}
