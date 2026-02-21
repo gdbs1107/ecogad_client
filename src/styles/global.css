@@ -17,7 +17,7 @@
 
   --container-width: 1280px;
   --header-height: 80px;
-  --mobile-inline-padding: 24px;
+  --mobile-inline-padding: 28px;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -1535,7 +1535,7 @@ h4 {
 
 @media (max-width: 480px) {
   :root {
-    --mobile-inline-padding: 22px;
+    --mobile-inline-padding: 26px;
   }
 
   .display-1 {
