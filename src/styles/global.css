@@ -17,6 +17,7 @@
 
   --container-width: 1280px;
   --header-height: 80px;
+  --mobile-inline-padding: 24px;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -1245,7 +1246,7 @@ h4 {
   }
 
   .container {
-    padding: 0 20px;
+    padding: 0 var(--mobile-inline-padding);
   }
 
   .section {
@@ -1276,8 +1277,8 @@ h4 {
   .global-nav {
     position: absolute;
     top: calc(var(--header-height) - 1px);
-    left: 20px;
-    right: 20px;
+    left: var(--mobile-inline-padding);
+    right: var(--mobile-inline-padding);
     background: var(--color-white);
     border: 1px solid var(--color-gray-200);
     border-radius: var(--radius-md);
@@ -1332,7 +1333,7 @@ h4 {
   }
 
   .page-hero-content {
-    padding: 0 20px 36px;
+    padding: 0 var(--mobile-inline-padding) 36px;
   }
 
   .page-hero p {
@@ -1374,7 +1375,7 @@ h4 {
   }
 
   .philosophy-item {
-    padding: 36px 24px;
+    padding: 36px 28px;
   }
 
   .home-split-grid,
@@ -1416,17 +1417,25 @@ h4 {
   }
 
   .history-item {
-    gap: 20px;
-  }
-
-  .history-year {
-    width: 72px;
-    font-size: 1.2rem;
+    display: block;
+    padding-bottom: 36px;
   }
 
   .history-item::before,
   .history-dot {
-    left: 84px;
+    display: none;
+  }
+
+  .history-year {
+    width: auto;
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .history-content {
+    padding: 4px 0 0 18px;
+    border-left: 2px solid var(--color-gray-200);
   }
 
   .company-cta-actions {
@@ -1439,7 +1448,7 @@ h4 {
   }
 
   .inquiry-form-wrap {
-    padding: 30px 20px;
+    padding: 32px 24px;
   }
 
   .inquiry-row {
@@ -1457,7 +1466,7 @@ h4 {
 
   .notice-table th,
   .notice-table td {
-    padding: 14px 12px;
+    padding: 14px 14px;
   }
 
   .notice-col-number,
@@ -1525,6 +1534,10 @@ h4 {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --mobile-inline-padding: 22px;
+  }
+
   .display-1 {
     font-size: 1.95rem;
   }
@@ -1544,5 +1557,13 @@ h4 {
   .notice-col-date,
   .notice-date-cell {
     display: none;
+  }
+
+  .history-year {
+    font-size: 1.8rem;
+  }
+
+  .history-content {
+    padding-left: 16px;
   }
 }
