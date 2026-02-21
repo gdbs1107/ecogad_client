@@ -76,7 +76,8 @@ button {
 }
 
 .section {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .bg-gray {
@@ -1243,6 +1244,7 @@ h4 {
 @media (max-width: 768px) {
   :root {
     --header-height: 72px;
+    --mobile-inline-padding: max(40px, 8vw);
   }
 
   .container {
@@ -1250,7 +1252,8 @@ h4 {
   }
 
   .section {
-    padding: 72px 0;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
   .display-1 {
@@ -1535,7 +1538,7 @@ h4 {
 
 @media (max-width: 480px) {
   :root {
-    --mobile-inline-padding: 26px;
+    --mobile-inline-padding: max(34px, 8vw);
   }
 
   .display-1 {
