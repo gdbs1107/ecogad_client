@@ -8,20 +8,28 @@ import InquiryPage from "./pages/InquiryPage";
 import NoticeListPage from "./pages/NoticeListPage"; // Existing file
 import NoticeDetailPage from "./pages/NoticeDetailPage"; // Existing file
 import NotFoundPage from "./pages/NotFoundPage"; // Existing file
+import brandLogo from "./assets/ecogod-logo-wordmark.svg";
 
 // Simple Footer for completeness
 const Footer = () => (
   <footer className="site-footer">
     <div className="container footer-inner">
-      <div className="footer-brand">ECOGAD</div>
+      <div className="footer-brand">
+        <img src={brandLogo} alt="ECO GOD 로고" className="footer-brand-logo" loading="lazy" />
+        <span className="footer-brand-name">ECO GOD Co.,Ltd.</span>
+      </div>
       <div className="footer-grid">
         <div>
-          <p>경기도 화성시 동탄첨단산업1로 27</p>
-          <p>대표전화: 031-123-4567 | 팩스: 031-123-4568</p>
-          <p>이메일: sales@ecogad.co.kr</p>
+          <p>(주)에코가드 | ECO GOD Co.,Ltd.</p>
+          <p>대표: 전철환</p>
+          <p>주소: 경기도 안산시 단원구 만해로 205 타원TAKRAIII 3층 A-315호</p>
+          <p>Tel. 031-380-0329 | Mob. 010-5223-5879</p>
+          <p>Fax. 031-437-6360 | E-mail. filter0524@naver.com</p>
         </div>
         <div className="footer-copyright">
-          <p>Copyright © 2026 ECOGAD. All rights reserved.</p>
+          <p>산업용 필터 설계·제조 전문</p>
+          <p>[화력발전소/방전가공기/공기정화용/집진기/수처리/유압오일/MIST/COMP]</p>
+          <p>Copyright © {new Date().getFullYear()} ECO GOD. All rights reserved.</p>
         </div>
       </div>
     </div>
