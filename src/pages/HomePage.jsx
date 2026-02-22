@@ -34,23 +34,23 @@ const HomePage = () => {
         />
 
         <div className="container home-hero-content">
-          <span className="section-eyebrow home-hero-eyebrow">ENGINEERING PURITY SINCE 2012</span>
+          <span className="section-eyebrow home-hero-eyebrow">THE SMILE OF HONEYBEE</span>
           <h1 className="display-1 home-hero-title">
-            The Standard of
+            Precision Filters for
             <br />
-            <span>Industrial Purity.</span>
+            <span>Industrial Reliability.</span>
           </h1>
           <p className="body-text home-hero-desc">
-            반도체 클린룸에서 공항까지, 에코가드의 초정밀 필터 솔루션은
+            화력발전소, 집진기, 수처리 설비부터 고청정 클린룸까지 ECO GOD의 산업용 필터 솔루션은
             <br className="desktop-only" />
-            산업의 품질과 생명을 지키는 가장 완벽한 기준이 됩니다.
+            현장 운전 안정성과 공기질 기준을 동시에 만족시키는 실전형 표준을 제공합니다.
           </p>
           <div className="home-hero-actions">
             <Link to="/products" className="btn btn-primary">
               EXPLORE SOLUTIONS
             </Link>
             <Link to="/company" className="btn btn-ghost-light">
-              ABOUT ECOGAD
+              ABOUT ECO GOD
             </Link>
           </div>
         </div>

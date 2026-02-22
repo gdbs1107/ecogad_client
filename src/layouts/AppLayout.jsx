@@ -24,9 +24,9 @@ export default function AppLayout() {
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "ecogad",
-      url: "https://www.ecogad.com",
-      description: "산업용 대형 공조 필터 제조 및 클린룸 유지보수 전문 기업"
+      name: "ECO GOD Co.,Ltd.",
+      url: "https://ecogadfront.vercel.app",
+      description: "산업용 필터 설계·제조 전문 기업"
     });
     document.head.appendChild(script);
   }, []);
@@ -39,8 +39,8 @@ export default function AppLayout() {
     <div className="site-shell">
       <header className="site-header">
         <div className="container header-inner">
-          <NavLink to="/" className="brand" aria-label="ecogad 홈으로 이동">
-            ECOGAD
+          <NavLink to="/" className="brand" aria-label="ECO GOD 홈으로 이동">
+            ECO GOD
           </NavLink>
           <button
             type="button"
@@ -82,8 +82,8 @@ export default function AppLayout() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <p>© {new Date().getFullYear()} ecogad. All rights reserved.</p>
-          <p>산업용 공조 필터 제조 및 클린룸 유지보수 전문</p>
+          <p>© {new Date().getFullYear()} ECO GOD. All rights reserved.</p>
+          <p>산업용 필터 설계·제조 전문</p>
         </div>
       </footer>
     </div>

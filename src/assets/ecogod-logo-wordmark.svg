@@ -1,0 +1,22 @@
+<svg width="540" height="116" viewBox="0 0 540 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ECO GOD 로고</title>
+  <desc id="desc">육각형 심볼과 텍스트로 구성된 ECO GOD 워드마크</desc>
+  <rect width="540" height="116" fill="none"/>
+
+  <g transform="translate(0 10)">
+    <text x="6" y="72" fill="#4A4A4D" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" letter-spacing="1.2">ec</text>
+
+    <polygon points="158,18 192,37 192,75 158,94 124,75 124,37" fill="#E8B034"/>
+    <polygon points="234,18 268,37 268,75 234,94 200,75 200,37" fill="#E8B034"/>
+
+    <path d="M182 26C182 18.5 186.8 11.8 193.8 8.9" stroke="#4A4A4D" stroke-width="5" stroke-linecap="round"/>
+    <path d="M208 26C208 18.5 212.8 11.8 219.8 8.9" stroke="#4A4A4D" stroke-width="5" stroke-linecap="round"/>
+
+    <ellipse cx="196" cy="56" rx="15" ry="21" fill="#FFFFFF"/>
+    <rect x="184" y="43" width="24" height="6" rx="3" fill="#4A4A4D"/>
+    <rect x="184" y="53" width="24" height="6" rx="3" fill="#4A4A4D"/>
+    <rect x="184" y="63" width="24" height="6" rx="3" fill="#4A4A4D"/>
+
+    <text x="274" y="72" fill="#4A4A4D" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" letter-spacing="1.2">d</text>
+  </g>
+</svg>

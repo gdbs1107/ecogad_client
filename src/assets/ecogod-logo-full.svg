@@ -1,0 +1,24 @@
+<svg width="760" height="230" viewBox="0 0 760 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ECO GOD CI</title>
+  <desc id="desc">ECO GOD 로고와 슬로건이 포함된 회사 CI</desc>
+  <rect width="760" height="230" fill="none"/>
+
+  <g transform="translate(90 26)">
+    <text x="0" y="88" fill="#4A4A4D" font-family="Arial Black, Arial, sans-serif" font-size="92" font-weight="900" letter-spacing="1.2">ec</text>
+
+    <polygon points="200,22 241,45 241,91 200,114 159,91 159,45" fill="#E8B034"/>
+    <polygon points="292,22 333,45 333,91 292,114 251,91 251,45" fill="#E8B034"/>
+
+    <path d="M229 31C229 21 235.4 12 244.8 8.2" stroke="#4A4A4D" stroke-width="6" stroke-linecap="round"/>
+    <path d="M261 31C261 21 267.4 12 276.8 8.2" stroke="#4A4A4D" stroke-width="6" stroke-linecap="round"/>
+
+    <ellipse cx="246" cy="67" rx="17" ry="24" fill="#FFFFFF"/>
+    <rect x="232" y="52" width="28" height="7" rx="3.5" fill="#4A4A4D"/>
+    <rect x="232" y="64" width="28" height="7" rx="3.5" fill="#4A4A4D"/>
+    <rect x="232" y="76" width="28" height="7" rx="3.5" fill="#4A4A4D"/>
+
+    <text x="340" y="88" fill="#4A4A4D" font-family="Arial Black, Arial, sans-serif" font-size="92" font-weight="900" letter-spacing="1.2">d</text>
+
+    <text x="102" y="152" fill="#4A4A4D" font-family="Arial, sans-serif" font-size="36" font-weight="500" letter-spacing="6">THE SMILE OF HONEYBEE</text>
+  </g>
+</svg>

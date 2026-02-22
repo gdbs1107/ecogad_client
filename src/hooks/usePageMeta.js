@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const BASE_TITLE = "ecogad";
+const BASE_TITLE = "ECO GOD";
 
 export default function usePageMeta(pageTitle, description) {
   useEffect(() => {
