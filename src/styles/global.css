@@ -12,6 +12,7 @@
   --color-gray-200: #ddd9ce;
   --color-gray-400: #999487;
   --color-gray-600: #5f5b51;
+  --color-logo-bg: #efefed;
   --color-accent-rgb: 232 176 52;
 
   --font-main: "Pretendard Variable", "Inter", -apple-system, sans-serif;
@@ -103,14 +104,14 @@ button {
   right: 0;
   z-index: 1000;
   height: var(--header-height);
-  background: rgb(247 246 242 / 0.88);
+  background: rgb(239 239 237 / 0.94);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: var(--transition);
 }
 
 .site-header.is-scrolled {
-  background: rgb(247 246 242 / 0.97);
+  background: rgb(239 239 237 / 0.98);
   border-bottom-color: var(--color-gray-200);
 }
 
@@ -126,15 +127,32 @@ button {
   color: var(--color-navy-900);
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 0;
   letter-spacing: 0.02em;
   z-index: 1001;
+  text-decoration: none;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+}
+
+.brand-logo-surface {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 .brand-logo {
+  height: 46px;
   width: auto;
-  height: 44px;
   object-fit: contain;
+  display: block;
 }
 
 .sr-only {
@@ -237,18 +255,34 @@ button {
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
+  width: auto;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
 }
 
 .footer-brand-logo {
   width: auto;
-  height: 48px;
+  height: 44px;
   object-fit: contain;
+  display: block;
+}
+
+.footer-brand-logo-surface {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 .footer-brand-name {
   font-size: 1.05rem;
   letter-spacing: 0.06em;
   font-weight: 700;
+  color: var(--color-white);
 }
 
 .footer-grid {
@@ -654,7 +688,7 @@ h4 {
 }
 
 .company-identity-section {
-  background: var(--color-white);
+  background: var(--color-logo-bg);
 }
 
 .company-identity-grid {
@@ -668,6 +702,10 @@ h4 {
   width: 100%;
   max-width: 620px;
   margin: 0 auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 .company-identity-card {
@@ -1387,6 +1425,11 @@ h4 {
     height: 36px;
   }
 
+  .brand-logo-surface {
+    border-radius: 0;
+    padding: 0;
+  }
+
   .global-nav {
     position: absolute;
     top: calc(var(--header-height) - 1px);
@@ -1434,6 +1477,10 @@ h4 {
 
   .footer-brand-logo {
     height: 42px;
+  }
+
+  .footer-brand-logo-surface {
+    padding: 0;
   }
 
   .footer-brand-name {

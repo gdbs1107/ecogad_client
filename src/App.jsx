@@ -8,15 +8,17 @@ import InquiryPage from "./pages/InquiryPage";
 import NoticeListPage from "./pages/NoticeListPage"; // Existing file
 import NoticeDetailPage from "./pages/NoticeDetailPage"; // Existing file
 import NotFoundPage from "./pages/NotFoundPage"; // Existing file
-import brandLogo from "./assets/ecogod-logo-wordmark.svg";
+import brandLogo from "./assets/ecogad-logo-request.png";
 
 // Simple Footer for completeness
 const Footer = () => (
   <footer className="site-footer">
     <div className="container footer-inner">
       <div className="footer-brand">
-        <img src={brandLogo} alt="ECO GOD 로고" className="footer-brand-logo" loading="lazy" />
-        <span className="footer-brand-name">ECO GOD Co.,Ltd.</span>
+        <span className="footer-brand-logo-surface">
+          <img src={brandLogo} alt="ECOGAD 로고" className="footer-brand-logo" loading="lazy" />
+        </span>
+        <span className="footer-brand-name">ECOGAD Co.,Ltd.</span>
       </div>
       <div className="footer-grid">
         <div>
